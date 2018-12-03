@@ -1,0 +1,31 @@
+Solutions to the Traveling Salesman Problem Using Real World Data
+By: Samuel Carlenzoli, Russell Charnoff, and Max Goldman
+
+
+The interface runs from the main function in "Graph.java"
+
+Project Description:  The Traveling Salesman Problem (TSP) asks the solver to find the shortest tour for a traveling
+salesman to take if he has to visit a certain number of cities and return back to his starting location.  We attempted
+to solve this problem by representing the cities and their distances to each other as a weighted graph and implementing
+algorithms to use the graph to find the shortest path using heuristics.  We implemented three different heuristics:
+ (1) a nearest neighbor heuristic, that starts with the starting point and adds the next node by determining the closest
+  neighbor to the most-recently added point; (2) an "insert shortest" heuristic, that adds each subsequent point by
+  seeing what would cause the smallest increase in the current distance of the tour; and (3) the Goldman Algorithm,
+  which finds an MST and then, starting from the starting vertex, continually adds new nodes by traversing the MST.
+  Additionally, we tried to implement many solutions using Dijkstra's algorithm, but found none that worked.  Our
+  most recent attempt (included) uses Dijkstra's to find the shortest path to the farthest node from the start path
+  and continually eliminates paths until half of the nodes are used on the way there, then does the same thing on the
+  way back (it failed because deleting paths potentially deletes edges that would be in the final solution).  We
+  also implemented a brute-force heuristic, that calculates the exact shortest path by trying out all permutations.
+  
+ We used what we learned from the Physical Networks portion of the class to read in the data in from online
+ in the same way we did it in Homework 3, and used graph theory to explore different solutions to the problem
+ and implement Dijkstra's (although it was ultimately unused).
+ 
+ Work Breakdown:
+ 
+ Sam: City, Graph, and URLGetter classes (including data read in, creation of the graph, and main class)
+ Russell: Dijkstra's, DijkstrasSoln, GeographicGraphImpl, and InsertShortest classes. (summary.txt
+          as well :) )
+ Max:  GeographicGraph, NormalGeographicGtaph, and TSPSolution interfaces; GoldmanAlgorithm,
+       NearestNeighbor, NormalGeographicAdjacencyList, and Prim classes
